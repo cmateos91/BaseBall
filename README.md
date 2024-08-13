@@ -20,7 +20,7 @@ Este es un juego interactivo simple donde puedes hacer clic en un balón para ma
 - **JavaScript**: Lógica del juego, incluyendo la gravedad, las colisiones y el contador de clics.
 
 ## Licencia
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Este proyecto está licenciado bajo la Licencia Creative Commons Attribution-NonCommercial 4.0 International. Consulta el archivo `LICENSE` para más detalles.
 
 ## Contacto
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme a través de cmateo5@proton.me
