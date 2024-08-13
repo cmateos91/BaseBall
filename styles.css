@@ -1,0 +1,66 @@
+/* Estilos globales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 10px solid #420209;
+    background-color: rgb(211, 199, 199);
+    box-sizing: border-box;
+    position: relative; /* Necesario para posicionar el cubo dentro del contenedor */
+    min-height: 100vh; /* Asegura que el contenedor llene toda la pantalla */
+}
+
+/* Encabezado */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+/* Párrafo */
+p {
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Estilos del cubo */
+.ball {
+    width: 60px;
+    height: 60px;
+    background-color: #1254ec; /* Color del balón */
+    border-radius: 50%; /* Hace que el elemento sea redondo */
+    position: absolute;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    background-image: radial-gradient(circle, #1254ec 20%, #0a3b8c 100%); /* Gradiente radial */
+    background-size: cover; /* Ajustar la textura al tamaño del balón */
+}
+
+.rotating {
+    transition: transform 0.1s linear;
+}
+/*Estilo del contador de clicks */
+.click-counter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: #000;
+    user-select: none; /* Evita que el texto sea seleccionable */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Fuente estilo Apple */
+}
