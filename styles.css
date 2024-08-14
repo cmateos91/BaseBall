@@ -46,6 +46,10 @@ p {
     background-size: cover; /* Ajustar la textura al tamaño del balón */
 }
 
+.ball:active {
+    outline: none;
+}
+
 .rotating {
     transition: transform 0.1s linear;
 }
