@@ -41,7 +41,7 @@ p {
     background-color: #1254ec; /* Color del balón */
     border-radius: 50%; /* Hace que el elemento sea redondo */
     position: absolute;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    box-shadow: none; /* Sombra suave */
     background-image: radial-gradient(circle, #1254ec 20%, #0a3b8c 100%); /* Gradiente radial */
     background-size: cover; /* Ajustar la textura al tamaño del balón */
 }
