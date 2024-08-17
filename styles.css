@@ -69,6 +69,8 @@ p {
     background-size: cover; /* Ajustar la textura al tamaño del balón */
     transition: transform 0.1s ease-in-out, top 0.1s ease-in-out, left 0.1s ease-in-out;
     overflow: hidden; /* Esconde el contenido que se desborda */
+    outline: none; /* Elimina el contorno al enfocar el botón */
+    box-shadow: none; /* Elimina cualquier sombra aplicada */
 }
 
 .ball::before {
