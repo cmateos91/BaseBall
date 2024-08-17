@@ -175,9 +175,14 @@ button:focus {
 }
 
 /* Estilo específico para dispositivos móviles */
-@media (pointer: coarse) { /* Aplica solo para dispositivos con pantallas táctiles */
+@media (pointer: coarse) {
     #pause-button:focus {
-        outline: none; /* Elimina el contorno en dispositivos móviles */
-        box-shadow: none; /* Asegúrate de que no haya sombra aplicada */
+        outline: none;
+        box-shadow: none;
+    }
+
+    .ball:focus, .ball:active {
+        outline: none; /* Elimina el contorno al enfocar o activar el balón */
+        box-shadow: none; /* Elimina cualquier sombra aplicada */
     }
 }
