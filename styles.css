@@ -35,7 +35,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('textura.jpg'); /* Agrega una textura suave */
+    background-color: acuamarine; /* Agrega una textura suave */
     background-size: cover; /* Asegura que la textura cubra todo el contenedor */
     background-position: center; /* Centra la textura dentro del contenedor */
     background-repeat: no-repeat; /* Evita que la textura se repita */
