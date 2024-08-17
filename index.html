@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Elegante con Bordes y Cubo Interactivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
+    <div class="btncontainer">
+        <button id="start-button">Iniciar</button>
+    </div>
+        <button id="pause-button"></button>
       <div id="click-counter" class="click-counter">0</div>
+      <div id="custom-cursor"></div>
         <div id="ball" class="ball"></div>
     </div>
+    <audio id="bounce-sound" src="rebote2.mp3" preload="auto"></audio>
     <script src="script.js"></script>
 </body>
 </html>

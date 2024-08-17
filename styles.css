@@ -6,19 +6,41 @@ body {
     background-color: #f4f4f4;
     overflow-x: hidden;
     overflow-y: hidden;
+    
 
 }
-
 /* Contenedor principal */
 .container {
-    width: 80%;
+    width: 100%;
+    height: 100vh;
     margin: auto;
     padding: 20px;
-    border: 10px solid #420209;
-    background-color: rgb(211, 199, 199);
+    border: 10px solid rgba(66, 2, 9, 0.8); /* Borde más suave con transparencia */
+    background: linear-gradient(to bottom, #283E51, #4B79A1, #283E51); /* Gradiente estático */
     box-sizing: border-box;
-    position: relative; /* Necesario para posicionar el cubo dentro del contenedor */
-    min-height: 100vh; /* Asegura que el contenedor llene toda la pantalla */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5); /* Sombra para dar efecto de elevación */
+    border-radius: 15px; /* Bordes ligeramente redondeados para suavizar el contenedor */
+    overflow: hidden; /* Esconde cualquier contenido que se desborde */
+}
+
+/* Textura sutil */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('textura.jpg'); /* Agrega una textura suave */
+    background-size: cover; /* Asegura que la textura cubra todo el contenedor */
+    background-position: center; /* Centra la textura dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la textura se repita */
+    opacity: 1; /* Ajusta la opacidad para que la textura no sea dominante */
+    pointer-events: none; /* La textura no interfiere con el contenido interactivo */
 }
 
 /* Encabezado */
@@ -34,21 +56,41 @@ p {
     text-align: center;
 }
 
-/* Estilos del cubo */
+/* Estilos de la esfera */
 .ball {
     width: 60px;
     height: 60px;
     background-color: #1254ec; /* Color del balón */
     border-radius: 50%; /* Hace que el elemento sea redondo */
     position: absolute;
-    box-shadow: none; /* Sombra suave */
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
     background-image: radial-gradient(circle, #1254ec 20%, #0a3b8c 100%); /* Gradiente radial */
     background-size: cover; /* Ajustar la textura al tamaño del balón */
+    transition: transform 0.1s ease-in-out, top 0.1s ease-in-out, left 0.1s ease-in-out;
+    overflow: hidden; /* Esconde el contenido que se desborda */
 }
 
-.ball:active {
-    outline: none;
+.ball::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('eth.png'); /* Agrega una textura suave */
+    background-size: cover; /* Asegura que la textura cubra el balón */
+    opacity: 0.65; /* Ajusta la opacidad de la textura para que no sea demasiado dominante */
+    pointer-events: none; /* La textura no interfiere con las interacciones del balón */
+    z-index: -1; /* Coloca la textura detrás del contenido principal */
 }
+
+/* Clase para deshabilitar los eventos del puntero */
+.ball.paused {
+    pointer-events: none; /* Desactiva los eventos del puntero */
+}
+
+
 
 .rotating {
     transition: transform 0.1s linear;
@@ -67,4 +109,73 @@ p {
     padding: 10px 15px; /* Espaciado interno */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Fuente estilo Apple */
+}
+
+.btncontainer{
+    top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center; /* Centra horizontalmente y verticalmente */
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+    position: absolute; /* Asegura que el botón se posicione relativo al contenedor */
+}
+
+#start-button {
+    z-index: 1001;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Tamaño del ícono */
+}
+
+button:focus {
+    outline: none; /* Elimina el contorno al enfocar cualquier botón */
+    box-shadow: none; /* Elimina la sombra aplicada al enfoque de cualquier botón */
+}
+
+#pause-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Alto del botón */
+    padding: 0; /* Sin relleno adicional */
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Botón redondo */
+    cursor: pointer;
+    font-size: 20px; /* Tamaño del ícono */
+    text-align: center;
+    line-height: 40px; /* Alinea verticalmente el ícono */
+    display: flex; /* Utiliza Flexbox para centrar el ícono */
+    justify-content: center; /* Centra horizontalmente el ícono */
+    align-items: center; /* Centra verticalmente el ícono */
+    font-family: 'Font Awesome 6 Free'; /* Fuente de Font Awesome */
+    font-weight: 900; /* Peso de la fuente necesario para íconos */
+    outline: none; /* Elimina el contorno al enfocar el botón */
+    box-shadow: none; /* Elimina cualquier sombra aplicada */
+}
+
+/* Ícono de pausa */
+#pause-button:not(.paused)::before {
+    content: "\f04c"; /* Código Unicode para el ícono de pausa */
+}
+
+/* Ícono de reproducción */
+#pause-button.paused::before {
+    content: "\f04b"; /* Código Unicode para el ícono de reproducción */
+}
+
+/* Estilo específico para dispositivos móviles */
+@media (pointer: coarse) { /* Aplica solo para dispositivos con pantallas táctiles */
+    #pause-button:focus {
+        outline: none; /* Elimina el contorno en dispositivos móviles */
+        box-shadow: none; /* Asegúrate de que no haya sombra aplicada */
+    }
 }
